@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.quarkiverse.messaging-outbox</groupId>
+        <artifactId>quarkus-messaging-outbox-core-parent</artifactId>
+        <version>999-SNAPSHOT</version>
+    </parent>
+    <artifactId>quarkus-messaging-outbox</artifactId>
+    <name>Quarkus Messaging Outbox - Runtime</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.quarkiverse.messaging-outbox</groupId>
+            <artifactId>quarkus-messaging-outbox-spi</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-arc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-messaging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-health</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-extension-maven-plugin</artifactId>
+                <version>${quarkus.version}</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>extension-descriptor</goal>
+                        </goals>
+                        <configuration>
+                            <deployment>${project.groupId}:${project.artifactId}-deployment:${project.version}</deployment>
+                            <conditionalDependencies>
+                                <artifact>${project.groupId}:quarkus-messaging-outbox-amqp:${project.version}</artifact>
+                                <artifact>${project.groupId}:quarkus-messaging-outbox-kafka:${project.version}</artifact>
+                                <artifact>${project.groupId}:quarkus-messaging-outbox-rabbitmq:${project.version}</artifact>
+                                <artifact>${project.groupId}:quarkus-messaging-outbox-jackson:${project.version}</artifact>
+                                <artifact>${project.groupId}:quarkus-messaging-outbox-hibernate-orm:${project.version}</artifact>
+                                <artifact>${project.groupId}:quarkus-messaging-outbox-hibernate-reactive:${project.version}</artifact>
+                            </conditionalDependencies>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-compile</id>
+                        <configuration>
+                            <annotationProcessorPaths>
+                                <path>
+                                    <groupId>io.quarkus</groupId>
+                                    <artifactId>quarkus-extension-processor</artifactId>
+                                </path>
+                            </annotationProcessorPaths>
+                            <annotationProcessorPathsUseDepMgmt>true</annotationProcessorPathsUseDepMgmt>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

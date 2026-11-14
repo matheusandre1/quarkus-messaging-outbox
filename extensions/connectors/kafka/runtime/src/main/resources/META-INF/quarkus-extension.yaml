@@ -1,0 +1,12 @@
+name: Quarkus Messaging Outbox - Kafka
+description: Kafka connector support for Quarkus Messaging Outbox
+metadata:
+  keywords:
+    - messaging
+    - messaging-outbox
+    - kafka
+    - outbox
+  categories:
+    - "messaging"
+  status: "experimental"
+  unlisted: true

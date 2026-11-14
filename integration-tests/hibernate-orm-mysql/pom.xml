@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.quarkiverse.messaging-outbox</groupId>
+        <artifactId>quarkus-messaging-outbox-integration-tests</artifactId>
+        <version>999-SNAPSHOT</version>
+    </parent>
+    <artifactId>quarkus-messaging-outbox-integration-tests-hibernate-orm-mysql</artifactId>
+    <name>Quarkus Messaging Outbox - Integration Tests - Hibernate ORM store on MySQL</name>
+
+    <!--
+        Runs the Hibernate ORM store tests on MySQL, and validates the documented MySQL DDL. The tests are not copied: their sources are compiled from
+        extensions/stores/hibernate-orm/deployment/src/test/java, and only the database-sensitive classes run.
+
+        The tests set quarkus.datasource.db-kind=postgresql with overrideConfigKey, which goes into the test
+        application's properties. The system property below has a higher ordinal, so it takes precedence, and
+        Dev Services starts MySQL.
+
+        To cover another database, copy this module and change the driver and the db-kind.
+    -->
+
+    <properties>
+        <store.tests.dir>${project.basedir}/../../extensions/stores/hibernate-orm/deployment/src/test/java</store.tests.dir>
+        <native.surefire.skip>false</native.surefire.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.quarkiverse.messaging-outbox</groupId>
+            <artifactId>quarkus-messaging-outbox-hibernate-orm-deployment</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-agroal-deployment</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-narayana-jta-deployment</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkiverse.messaging-outbox</groupId>
+            <artifactId>quarkus-messaging-outbox-jackson-deployment</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jackson</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit-internal</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-mysql</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.smallrye.reactive</groupId>
+            <artifactId>smallrye-reactive-messaging-in-memory</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-flyway</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-mysql</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.27.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <id>add-store-tests</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${store.tests.dir}</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- The tests that depend on the database: SQL, locking, column types, two relays racing. -->
+                    <includes>
+                        <include>**/HibernateOrmStoreTest.java</include>
+                        <include>**/OutboxTwoRelaysTest.java</include>
+                        <include>**/OutboxCustomTableNameTest.java</include>
+                        <include>**/OutboxSchemaValidationTest.java</include>
+                    </includes>
+                    <systemPropertyVariables>
+                        <quarkus.datasource.db-kind>mysql</quarkus.datasource.db-kind>
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- The CI native build passes -Dnative.surefire.skip: these JVM tests already ran in the main build. -->
+        <profile>
+            <id>native-image</id>
+            <activation>
+                <property>
+                    <name>native</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <skipTests>${native.surefire.skip}</skipTests>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

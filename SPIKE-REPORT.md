@@ -121,3 +121,9 @@ Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
 - A channel with an `OutboxEmitter` and no connector works: SmallRye wires the emitter's publisher to any `@Incoming` method on the same channel name.
 - `OutboxEmitter` and a standard `Emitter` coexist on different channels without interference.
 - The extension feature name `messaging-outbox` appears in the startup log: `Installed features: [cdi, messaging, messaging-outbox, ...]`.
+
+## Design decisions
+
+### E10 — Broadcast dropped
+
+`@Broadcast` on an OutboxEmitter channel is not supported. SRM's WiringProcessor does not wire `@Incoming` methods as subscribers to a custom emitter type's publisher — it only connects the publisher to the channel's connector subscriber. Since the outbox channel's sole subscriber is always the connector (AMQP, Kafka), broadcast adds no value. Applications that need local observation of outbox messages should consume from the broker topic.

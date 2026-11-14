@@ -1,0 +1,12 @@
+name: Quarkus Messaging Outbox - Hibernate ORM
+description: Hibernate ORM store for Quarkus Messaging Outbox
+metadata:
+  keywords:
+    - messaging
+    - messaging-outbox
+    - hibernate-orm
+    - outbox
+  categories:
+    - "messaging"
+  status: "experimental"
+  unlisted: true

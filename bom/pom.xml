@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.quarkiverse.messaging-outbox</groupId>
+        <artifactId>quarkus-messaging-outbox-parent</artifactId>
+        <version>999-SNAPSHOT</version>
+    </parent>
+    <artifactId>quarkus-messaging-outbox-bom</artifactId>
+    <packaging>pom</packaging>
+    <name>Quarkus Messaging Outbox - BOM</name>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>eu.maveniverse.maven.plugins</groupId>
+                <artifactId>bom-builder3</artifactId>
+                <version>1.3.4</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-bom</goal>
+                        </goals>
+                        <configuration>
+                            <reactorDependencies>REACTOR</reactorDependencies>
+                            <dependencyExclusions>
+                                <dependencyExclusion>
+                                    <groupId>io.quarkiverse.messaging-outbox</groupId>
+                                    <artifactId>quarkus-messaging-outbox-docs</artifactId>
+                                </dependencyExclusion>
+                                <dependencyExclusion>
+                                    <groupId>io.quarkiverse.messaging-outbox</groupId>
+                                    <artifactId>quarkus-messaging-outbox-integration-tests-orm</artifactId>
+                                </dependencyExclusion>
+                                <dependencyExclusion>
+                                    <groupId>io.quarkiverse.messaging-outbox</groupId>
+                                    <artifactId>quarkus-messaging-outbox-integration-tests-reactive</artifactId>
+                                </dependencyExclusion>
+                                <dependencyExclusion>
+                                    <groupId>io.quarkiverse.messaging-outbox</groupId>
+                                    <artifactId>quarkus-messaging-outbox-integration-tests-rabbitmq</artifactId>
+                                </dependencyExclusion>
+                                <dependencyExclusion>
+                                    <groupId>io.quarkiverse.messaging-outbox</groupId>
+                                    <artifactId>quarkus-messaging-outbox-integration-tests-hibernate-orm-mysql</artifactId>
+                                </dependencyExclusion>
+                                <dependencyExclusion>
+                                    <groupId>io.quarkiverse.messaging-outbox</groupId>
+                                    <artifactId>quarkus-messaging-outbox-integration-tests-debezium-source</artifactId>
+                                </dependencyExclusion>
+                                <dependencyExclusion>
+                                    <groupId>io.quarkiverse.messaging-outbox</groupId>
+                                    <artifactId>quarkus-messaging-outbox-integration-tests-debezium-source-mysql</artifactId>
+                                </dependencyExclusion>
+                                <dependencyExclusion>
+                                    <groupId>io.quarkiverse.messaging-outbox</groupId>
+                                    <artifactId>quarkus-messaging-outbox-integration-tests-debezium-cdc</artifactId>
+                                </dependencyExclusion>
+                                <dependencyExclusion>
+                                    <groupId>io.quarkiverse.messaging-outbox</groupId>
+                                    <artifactId>quarkus-messaging-outbox-sample-customer-service</artifactId>
+                                </dependencyExclusion>
+                            </dependencyExclusions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

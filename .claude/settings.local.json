@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir *)",
+      "Bash(mv core/runtime/src/main/java/io/quarkiverse/messaging/outbox/runtime/orm/OutboxRecordEntity.java core/runtime/src/main/java/io/quarkiverse/messaging/outbox/runtime/persistence/)",
+      "Bash(mv core/runtime/src/main/java/io/quarkiverse/messaging/outbox/runtime/orm/OutboxLeaseEntity.java core/runtime/src/main/java/io/quarkiverse/messaging/outbox/runtime/persistence/)"
+    ]
+  }
+}

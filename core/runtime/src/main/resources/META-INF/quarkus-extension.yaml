@@ -1,0 +1,10 @@
+name: Quarkus Messaging Outbox
+description: Transactional outbox pattern for Quarkus Messaging
+metadata:
+  keywords:
+    - messaging
+    - messaging-outbox
+    - outbox
+  categories:
+    - "messaging"
+  status: "experimental"

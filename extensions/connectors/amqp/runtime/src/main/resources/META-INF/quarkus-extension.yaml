@@ -1,0 +1,12 @@
+name: Quarkus Messaging Outbox - AMQP
+description: AMQP connector support for Quarkus Messaging Outbox
+metadata:
+  keywords:
+    - messaging
+    - messaging-outbox
+    - amqp
+    - outbox
+  categories:
+    - "messaging"
+  status: "experimental"
+  unlisted: true

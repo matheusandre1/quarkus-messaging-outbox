@@ -1,0 +1,12 @@
+name: Quarkus Messaging Outbox - RabbitMQ
+description: RabbitMQ connector support for Quarkus Messaging Outbox
+metadata:
+  keywords:
+    - messaging
+    - messaging-outbox
+    - rabbitmq
+    - outbox
+  categories:
+    - "messaging"
+  status: "experimental"
+  unlisted: true

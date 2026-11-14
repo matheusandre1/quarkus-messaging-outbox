@@ -1,0 +1,12 @@
+name: Quarkus Messaging Outbox - Hibernate Reactive
+description: Hibernate Reactive store for Quarkus Messaging Outbox
+metadata:
+  keywords:
+    - messaging
+    - messaging-outbox
+    - hibernate-reactive
+    - outbox
+  categories:
+    - "messaging"
+  status: "experimental"
+  unlisted: true

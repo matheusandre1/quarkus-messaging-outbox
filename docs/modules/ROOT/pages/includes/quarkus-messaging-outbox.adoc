@@ -1,0 +1,74 @@
+[.configuration-legend]
+icon:lock[title=Fixed at build time] Configuration property fixed at build time - All other configuration properties are overridable at runtime
+[.configuration-reference.searchable, cols="80,.^10,.^10"]
+|===
+
+h|[.header-title]##Configuration property##
+h|Type
+h|Default
+
+a|icon:lock[title=Fixed at build time] [[quarkus-messaging-outbox_quarkus-messaging-outbox-table-name]] [.property-path]##link:#quarkus-messaging-outbox_quarkus-messaging-outbox-table-name[`+++quarkus.messaging-outbox.table-name+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.messaging-outbox.table-name+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The name of the outbox record table.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MESSAGING_OUTBOX_TABLE_NAME+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MESSAGING_OUTBOX_TABLE_NAME+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|`+++outbox_record+++`
+
+a|icon:lock[title=Fixed at build time] [[quarkus-messaging-outbox_quarkus-messaging-outbox-lease-table-name]] [.property-path]##link:#quarkus-messaging-outbox_quarkus-messaging-outbox-lease-table-name[`+++quarkus.messaging-outbox.lease-table-name+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.messaging-outbox.lease-table-name+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The name of the outbox lease table.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MESSAGING_OUTBOX_LEASE_TABLE_NAME+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MESSAGING_OUTBOX_LEASE_TABLE_NAME+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|`+++outbox_lease+++`
+
+a|icon:lock[title=Fixed at build time] [[quarkus-messaging-outbox_quarkus-messaging-outbox-persistence-unit]] [.property-path]##link:#quarkus-messaging-outbox_quarkus-messaging-outbox-persistence-unit[`+++quarkus.messaging-outbox.persistence-unit+++`]##
+ifdef::add-copy-button-to-config-props[]
+config_property_copy_button:+++quarkus.messaging-outbox.persistence-unit+++[]
+endif::add-copy-button-to-config-props[]
+
+
+[.description]
+--
+The name of the persistence unit to use for outbox entities.
+
+
+ifdef::add-copy-button-to-env-var[]
+Environment variable: env_var_with_copy_button:+++QUARKUS_MESSAGING_OUTBOX_PERSISTENCE_UNIT+++[]
+endif::add-copy-button-to-env-var[]
+ifndef::add-copy-button-to-env-var[]
+Environment variable: `+++QUARKUS_MESSAGING_OUTBOX_PERSISTENCE_UNIT+++`
+endif::add-copy-button-to-env-var[]
+--
+|string
+|`+++<default>+++`
+
+|===
+
