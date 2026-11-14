@@ -1,0 +1,31 @@
+= Quarkus Messaging Outbox
+
+include::./includes/attributes.adoc[]
+
+TIP: Describe what the extension does here.
+
+== Installation
+
+To use this extension, add the `io.quarkiverse.messaging-outbox:quarkus-messaging-outbox` dependency to your build file.
+
+With Maven, add the following to your `pom.xml`:
+
+[source,xml,subs=attributes+]
+----
+<dependency>
+    <groupId>io.quarkiverse.messaging-outbox</groupId>
+    <artifactId>quarkus-messaging-outbox</artifactId>
+    <version>{project-version}</version>
+</dependency>
+----
+
+With Gradle, add the following to your `build.gradle`:
+
+[source,gradle,subs=attributes+]
+----
+implementation("io.quarkiverse.messaging-outbox:quarkus-messaging-outbox:{project-version}")
+----
+
+== Usage
+
+TIP: Add a minimal usage example here.
