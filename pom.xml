@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.quarkiverse</groupId>
         <artifactId>quarkiverse-parent</artifactId>
-        <version>25</version>
+        <version>26</version>
     </parent>
     <groupId>io.quarkiverse.messaging-outbox</groupId>
     <artifactId>quarkus-messaging-outbox-parent</artifactId>
@@ -31,9 +31,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.version>4.0.0.CR1</quarkus.version>
-        <assertj-core.version>3.27.3</assertj-core.version>
+        <assertj-core.version>3.27.7</assertj-core.version>
         <!-- The Debezium record source. Not managed by the Quarkus BOM. -->
-        <debezium.version>3.7.0.Final</debezium.version>
+        <debezium.version>3.7.1.Final</debezium.version>
     </properties>
 
     <dependencyManagement>
