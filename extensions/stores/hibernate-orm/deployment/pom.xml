@@ -64,11 +64,6 @@
             <artifactId>quarkus-jdbc-postgresql</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.smallrye.reactive</groupId>
-            <artifactId>smallrye-reactive-messaging-in-memory</artifactId>
-            <scope>test</scope>
-        </dependency>
         <!-- OutboxSchemaValidationTest applies the documented DDL with Flyway -->
         <dependency>
             <groupId>io.quarkus</groupId>
