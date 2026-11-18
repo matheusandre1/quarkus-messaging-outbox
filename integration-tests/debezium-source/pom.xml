@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.quarkiverse.messaging.outbox</groupId>
         <artifactId>quarkus-messaging-outbox-integration-tests</artifactId>
-        <version>999-SNAPSHOT</version>
+        <version>0.2.0</version>
     </parent>
     <artifactId>quarkus-messaging-outbox-integration-tests-debezium-source</artifactId>
     <name>Quarkus Messaging Outbox - Integration Tests - Debezium source</name>
