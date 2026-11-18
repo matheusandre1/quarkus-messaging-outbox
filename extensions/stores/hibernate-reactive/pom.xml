@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.quarkiverse.messaging.outbox</groupId>
         <artifactId>quarkus-messaging-outbox-stores</artifactId>
-        <version>0.2.0</version>
+        <version>999-SNAPSHOT</version>
     </parent>
     <artifactId>quarkus-messaging-outbox-hibernate-reactive-parent</artifactId>
     <packaging>pom</packaging>
