@@ -1,6 +1,6 @@
 # Quarkus Messaging Outbox
 
-[![Version](https://img.shields.io/maven-central/v/io.quarkiverse.messaging-outbox/quarkus-messaging-outbox?logo=apache-maven&style=flat-square)](https://central.sonatype.com/artifact/io.quarkiverse.messaging-outbox/quarkus-messaging-outbox-parent)
+[![Version](https://img.shields.io/maven-central/v/io.quarkiverse.messaging.outbox/quarkus-messaging-outbox?logo=apache-maven&style=flat-square)](https://central.sonatype.com/artifact/io.quarkiverse.messaging.outbox/quarkus-messaging-outbox-parent)
 
 A Quarkus extension that implements the [transactional outbox pattern](https://microservices.io/patterns/data/transactional-outbox) for Quarkus Messaging. `OutboxEmitter<T>` stores outgoing messages in the caller's database transaction and relays them to any messaging connector (Kafka, AMQP, RabbitMQ) with at-least-once delivery.
 
@@ -25,7 +25,7 @@ Import the BOM and add the extension. The store, mapper, and connector modules a
 <dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>io.quarkiverse.messaging-outbox</groupId>
+            <groupId>io.quarkiverse.messaging.outbox</groupId>
             <artifactId>quarkus-messaging-outbox-bom</artifactId>
             <version>${quarkus-messaging-outbox.version}</version>
             <type>pom</type>
@@ -36,7 +36,7 @@ Import the BOM and add the extension. The store, mapper, and connector modules a
 
 <dependencies>
     <dependency>
-        <groupId>io.quarkiverse.messaging-outbox</groupId>
+        <groupId>io.quarkiverse.messaging.outbox</groupId>
         <artifactId>quarkus-messaging-outbox</artifactId>
     </dependency>
 </dependencies>

@@ -18,7 +18,7 @@ Import the BOM and add the core extension. The store, mapper, and connector exte
 <dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>io.quarkiverse.messaging-outbox</groupId>
+            <groupId>io.quarkiverse.messaging.outbox</groupId>
             <artifactId>quarkus-messaging-outbox-bom</artifactId>
             <version>{project-version}</version>
             <type>pom</type>
@@ -29,7 +29,7 @@ Import the BOM and add the core extension. The store, mapper, and connector exte
 
 <dependencies>
     <dependency>
-        <groupId>io.quarkiverse.messaging-outbox</groupId>
+        <groupId>io.quarkiverse.messaging.outbox</groupId>
         <artifactId>quarkus-messaging-outbox</artifactId>
     </dependency>
 </dependencies>
@@ -54,7 +54,7 @@ For example, a Kafka application with Hibernate ORM only needs:
 [source,xml,subs=attributes+]
 ----
 <dependency>
-    <groupId>io.quarkiverse.messaging-outbox</groupId>
+    <groupId>io.quarkiverse.messaging.outbox</groupId>
     <artifactId>quarkus-messaging-outbox</artifactId>
 </dependency>
 <!-- Your existing Quarkus dependencies -->
@@ -441,7 +441,7 @@ Add the extension and the Debezium connector of your database, `debezium-connect
 [source,xml,subs=attributes+]
 ----
 <dependency>
-    <groupId>io.quarkiverse.messaging-outbox</groupId>
+    <groupId>io.quarkiverse.messaging.outbox</groupId>
     <artifactId>quarkus-messaging-outbox-debezium</artifactId>
     <version>{project-version}</version>
 </dependency>
